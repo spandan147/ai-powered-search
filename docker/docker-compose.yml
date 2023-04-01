@@ -1,6 +1,7 @@
 version: '3.8' 
 services:
   notebooks:
+    platform: linux/x86_64
     build: 
       context: data-science/.
       dockerfile: Dockerfile
@@ -30,6 +31,7 @@ services:
         source: "./data-science/notebooks/"
         target: "/tmp/notebooks/"
   solr:
+    platform: linux/x86_64
     build:
       context: solr/.
       dockerfile: Dockerfile
@@ -47,6 +49,7 @@ services:
       - zookeeper
 
   zookeeper:
+    platform: linux/x86_64
     image: zookeeper:3.5.5
     container_name: aips-zk
     hostname: aips-zk
